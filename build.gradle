@@ -1,0 +1,12 @@
+task webpack(type: Exec) { 
+	inputs.file("package-lock.json") 
+    inputs.dir("src")
+    // NOTE: Add inputs.file("webpack.config.js") for projects that have it
+    outputs.dir("$buildDir/js")
+    commandLine "$projectDir/node_modules/.bin/webpack", "src/main.js", "$buildDir/js/index.js"
+}
+
+task getInfo {
+	println "$projectDir"
+	println "$buildDir"
+}
